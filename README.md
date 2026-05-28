@@ -39,11 +39,11 @@ pip install pytest
 ---
 
 ## 🛠️ Cómo se usa (Paso a Paso)
+Dentro de la carpeta donde correras la herramienta debes tener una carpeta llamada "mis_escenas_maya" (dentro de ella deben estar todas las escenas `.ma` que vayas a auditar) y otra llamada "resultados_json" (esta puede estar vacía, el parser generará los archivos con el reporte y los errores aunque aún no existan).
 Para poner a trabajar el script con tus archivos, abre la terminal de tu computadora y usa el siguiente comando. Solo debes indicarle dónde están tus escenas de Maya (--input) y dónde quieres guardar los resultados (--output):
 ```
 python ma_to_json.py --input "./mis_escenas_maya" --output "./resultados_json"
 ```
-Es decir, dentro de la carpeta donde correras la herramienta debes tener una carpeta llamada "mis_escenas_maya" (dentro de ella deben estar todas las escenas `.ma` que vayas a auditar) y otra llamada "resultados_json" (esta puede estar vacía, el parser generará los archivos con el reporte y los errores aunque aún no existan).
 ---
 
 ## 📄 ¿Qué resultado obtienes?
