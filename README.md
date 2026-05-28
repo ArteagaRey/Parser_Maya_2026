@@ -31,9 +31,7 @@ Este script soluciona el problema procesando los archivos como texto plano (Stre
 
 El script utiliza librerías nativas de Python (re, json, argparse, os). Solo requieres instalar pytest si deseas ejecutar la suite de pruebas de control de calidad.
 
-1. Clona este repositorio en tu estación de trabajo:
-   git clone [https://github.com/tu-usuario/maya-ascii-json-parser.git](https://github.com/tu-usuario/maya-ascii-json-parser.git)
-   cd maya-ascii-json-parser
+1. Clona este repositorio en tu estación de trabajo.
 
 2. Instala la dependencia de testing:
    pip install pytest
