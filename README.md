@@ -35,12 +35,17 @@ Si quieres correr las pruebas de seguridad, abre tu terminal (consola de comando
 ```bash
 pip install pytest
 ```
-🛠️ Cómo se usa (Paso a Paso)
+
+---
+
+## 🛠️ Cómo se usa (Paso a Paso)
 Para poner a trabajar el script con tus archivos, abre la terminal de tu computadora y usa el siguiente comando. Solo debes indicarle dónde están tus escenas de Maya (--input) y dónde quieres guardar los resultados (--output):
 
 python ma_to_json.py --input "./mis_escenas_maya" --output "./resultados_json"
 
-📄 ¿Qué resultado obtienes?
+---
+
+## 📄 ¿Qué resultado obtienes?
 En tu carpeta de resultados verás archivos que se ven así de limpios y ordenados:
 [
     {
@@ -52,8 +57,10 @@ En tu carpeta de resultados verás archivos que se ven así de limpios y ordenad
         ]
     }
 ]
+
 ---
-🔍 Tu Reporte de Errores Listo
+
+## 🔍 Tu Reporte de Errores Listo
 Al finalizar, el script te dejará un archivo de texto llamado auditoria_reporte.txt. Al abrirlo, verás un resumen directo como este:
 
 === REPORTE DE AUDITORÍA (NODOS CORRUPTOS) ===
