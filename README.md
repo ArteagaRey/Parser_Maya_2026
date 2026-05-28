@@ -47,7 +47,8 @@ python ma_to_json.py --input "./mis_escenas_maya" --output "./resultados_json"
 
 ## 📄 ¿Qué resultado obtienes?
 En tu carpeta de resultados verás archivos que se ven así de limpios y ordenados:
-<img width="846" height="222" alt="image" src="https://github.com/user-attachments/assets/a969bc5a-1bad-46c2-82d0-9d00d2a78c69" />
+<img width="1271" height="232" alt="image" src="https://github.com/user-attachments/assets/0f116888-f83f-42c6-a06a-0b77167c0971" />
+
 
 
 
