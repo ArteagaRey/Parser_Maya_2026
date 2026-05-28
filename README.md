@@ -1,4 +1,4 @@
-# 🎬 Automatización en Maya: Extractor de Datos a JSON (.ma a JSON)
+# 🎬 Parser Maya 2026: Extractor de Datos a JSON (.ma a JSON)
 
 ![Estado](https://img.shields.io/badge/Proyecto-Completado-brightgreen?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Hecho%20con-Python%203-blue?style=for-the-badge)
