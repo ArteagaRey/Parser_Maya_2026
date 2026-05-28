@@ -1,84 +1,64 @@
-# 🎬 Maya ASCII (.ma) to JSON Pipeline Parser
+# 🎬 Automatización en Maya: Extractor de Datos a JSON (.ma a JSON)
 
-![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.11-blue?style=for-the-badge&logo=python)
-![Pipeline Status](https://img.shields.io/badge/pipeline-passing-brightgreen?style=for-the-badge)
-![DCC Dependency](https://img.shields.io/badge/DCC%20Dependency-None-orange?style=for-the-badge)
+![Estado](https://img.shields.io/badge/Proyecto-Completado-brightgreen?style=for-the-badge)
+![Python](https://img.shields.io/badge/Hecho%20con-Python%203-blue?style=for-the-badge)
 
-Un parser de alto rendimiento diseñado para entornos de Technical Art y Pipeline de CGI/Videojuegos. Esta herramienta permite auditar y extraer metadatos de escenas de Maya en formato ASCII (.ma) a velocidad de software puro, de forma masiva y sin necesidad de abrir o depender de licencias de Autodesk Maya.
+¡Hola! Este proyecto es una herramienta en Python diseñada para escanear archivos de Maya (`.ma`) a máxima velocidad, extraer la información de sus mallas (meshes) y guardarla en archivos ordenados de formato JSON. 
 
----
-
-## 💡 ¿Por qué esto importa?
-
-En un pipeline de producción a gran escala (como auditorías nocturnas o flujos de integración continua), abrir cientos de archivos dentro de Maya para validar contenido es inviable por el tiempo de carga del DCC. 
-
-Este script soluciona el problema procesando los archivos como texto plano (Stream I/O) utilizando Expresiones Regulares (RegEx). Esto permite:
-* Validación de Render Farms: Detectar texturas rotas o rutas absolutas antes de gastar presupuesto en la granja.
-* Pre-commit Hooks (Git): Bloquear archivos corruptos o con namespaces sucios antes de que entren al servidor.
-* Migración de Assets: Extraer jerarquías y nombres de mallas en segundos para catalogación de proyectos viejos.
+Lo mejor de todo: **funciona fuera de Maya**, lo que significa que puedes revisar cientos de escenas sin tener que abrir el programa, ahorrando horas de trabajo.
 
 ---
 
-## 📦 Estructura del Repositorio
+## 💡 ¿Para qué sirve esta herramienta?
 
-├── ma_to_json.py          # Herramienta principal CLI (Batch Parser & Auditoría)
-├── test_parser.py         # Suite de pruebas unitarias automatizadas (Pytest)
-└── README.md              # Documentación técnica del proyecto
+Imagínate que estás en un estudio de animación o videojuegos y te dan **800 escenas de Maya**, pero te dicen que algunas tienen errores o carpetas rotas. Abrir los 800 archivos a mano en Maya para buscar el problema tomaría días y congelaría tu computadora.
 
----
-
-## 🚀 Instalación y Requisitos
-
-El script utiliza librerías nativas de Python (re, json, argparse, os). Solo requieres instalar pytest si deseas ejecutar la suite de pruebas de control de calidad.
-
-1. Clona este repositorio en tu estación de trabajo.
-
-2. Instala la dependencia de testing:
-   pip install pytest
+Este script lee los archivos como si fueran un bloc de notas gigante, busca la información en segundos y te genera:
+1. Un archivo **JSON** por cada escena con la lista de mallas, quién es su "padre" en la jerarquía y sus atributos.
+2. Un **Reporte de Alertas (`auditoria_reporte.txt`)** que te dice exactamente qué archivos están corruptos o rotos y en qué línea está el fallo. ¡Así solo abres en Maya los archivos que de verdad necesitan reparación!
 
 ---
 
-## 🛠️ Guía de Uso (CLI)
+## 📦 Carpetas del Proyecto
 
-El script cuenta con una interfaz de línea de comandos robusta armada con argparse. Para ejecutar el procesamiento masivo (Batch) de tus carpetas de escenas, utiliza los flags --input (directorio origen) y --output (directorio destino):
+├── ma_to_json.py          # El script principal que procesa los archivos y busca errores.
+├── test_parser.py         # Un script de pruebas para verificar que todo funcione bien.
+└── README.md              # Este archivo de instrucciones.
 
-python ma_to_json.py --input "./tus_escenas_maya" --output "./reportes_json"
+---
 
-### 📄 Ejemplo de Output Estructurado (.json)
-Cada archivo .ma procesado generará un archivo homónimo <nombre_escena>_meshes.json con la siguiente estructura limpia de diccionarios:
+## 🚀 Cómo instalarlo
 
+No necesitas instalar programas complejos. Solo asegúrate de tener Python en tu computadora.
+
+Si quieres correr las pruebas de seguridad, abre tu terminal (consola de comandos) e instala esta herramienta de ayuda:
+```bash
+pip install pytest
+```
+🛠️ Cómo se usa (Paso a Paso)
+Para poner a trabajar el script con tus archivos, abre la terminal de tu computadora y usa el siguiente comando. Solo debes indicarle dónde están tus escenas de Maya (--input) y dónde quieres guardar los resultados (--output):
+
+python ma_to_json.py --input "./mis_escenas_maya" --output "./resultados_json"
+
+📄 ¿Qué resultado obtienes?
+En tu carpeta de resultados verás archivos que se ven así de limpios y ordenados:
 [
     {
-        "name": "hero_sword_0_geo",
-        "parent": "character_GRP",
+        "name": "espada_heroe_geo",
+        "parent": "grupo_personaje",
         "attrs": [
-            "rename -uid \"8492-ABC-51\";",
             "setAttr -k off \".v\";",
             "setAttr \".io\" yes;"
         ]
     }
 ]
+---
+🔍 Tu Reporte de Errores Listo
+Al finalizar, el script te dejará un archivo de texto llamado auditoria_reporte.txt. Al abrirlo, verás un resumen directo como este:
 
-### 🔍 Reporte Automatizado de Auditoría
-Además de los archivos JSON individuales, el pipeline genera un archivo consolidado de texto llamado auditoria_reporte.txt en la carpeta de salida. Este archivo actúa como un log rápido para detectar anomalías de un solo vistazo:
-
-=== REPORTE DE AUDITORÍA DE PIPELINE (NODOS CORRUPTOS) ===
+=== REPORTE DE AUDITORÍA (NODOS CORRUPTOS) ===
 Total de archivos analizados: 800
-Total de anomalías detectadas: 2
+Total de errores encontrados: 1
 ------------------------------------------------------------
 
-[ALERT] Archivo: prop_lamp_v02.ma | Línea: 14520 -> Nodo 'unknown' detectado (Plugin faltante o escena rota)
-[ALERT] Archivo: character_boss_v09.ma | Línea: 902340 -> Nodo 'unknown' detectado (Plugin faltante o escena rota)
-
----
-
-## 🧪 Suite de Pruebas Unitarias
-
-Para garantizar la estabilidad de las expresiones regulares y el correcto aislamiento de excepciones y errores del sistema operativo, ejecuta la suite de pytest:
-
-pytest test_parser.py
-
-### 📋 Cobertura de Tests Integrados:
-* test_parse_valid_mesh: Verifica la captura exacta de jerarquías padre-hijo y el aislamiento de atributos identados.
-* test_file_not_found: Asegura el correcto manejo de errores en caso de rutas inválidas o inexistentes.
-* test_invalid_extension: Bloquea la ingesta de formatos binarios no soportados (.mb), protegiendo la ejecución del pipeline.
+[ALERT] Archivo: lampara_prop.ma | Línea: 1452 -> Se detectó un nodo roto ('unknown').
