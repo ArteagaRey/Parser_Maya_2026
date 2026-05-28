@@ -40,9 +40,9 @@ pip install pytest
 
 ## 🛠️ Cómo se usa (Paso a Paso)
 Para poner a trabajar el script con tus archivos, abre la terminal de tu computadora y usa el siguiente comando. Solo debes indicarle dónde están tus escenas de Maya (--input) y dónde quieres guardar los resultados (--output):
-
+```
 python ma_to_json.py --input "./mis_escenas_maya" --output "./resultados_json"
-
+```
 ---
 
 ## 📄 ¿Qué resultado obtienes?
