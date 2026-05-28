@@ -66,6 +66,10 @@ Al finalizar, el script te dejará un archivo de texto llamado auditoria_reporte
 === REPORTE DE AUDITORÍA (NODOS CORRUPTOS) ===
 Total de archivos analizados: 800
 Total de errores encontrados: 1
-------------------------------------------------------------
-
 [ALERT] Archivo: lampara_prop.ma | Línea: 1452 -> Se detectó un nodo roto ('unknown').
+
+## 🧪 Pruebas de Seguridad (Opcional)
+Para estar 100% seguro de que el script hace su trabajo correctamente y no se va a trabar con archivos inexistentes o extensiones equivocadas, ejecuta este comando en tu terminal:
+```bash
+pytest test_parser.py
+```
