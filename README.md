@@ -47,16 +47,9 @@ python ma_to_json.py --input "./mis_escenas_maya" --output "./resultados_json"
 
 ## 📄 ¿Qué resultado obtienes?
 En tu carpeta de resultados verás archivos que se ven así de limpios y ordenados:
-[
-    {
-        "name": "espada_heroe_geo",
-        "parent": "grupo_personaje",
-        "attrs": [
-            "setAttr -k off \".v\";",
-            "setAttr \".io\" yes;"
-        ]
-    }
-]
+<img width="846" height="222" alt="image" src="https://github.com/user-attachments/assets/a969bc5a-1bad-46c2-82d0-9d00d2a78c69" />
+
+
 
 ---
 
