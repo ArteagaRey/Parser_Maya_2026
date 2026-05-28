@@ -47,20 +47,13 @@ python ma_to_json.py --input "./mis_escenas_maya" --output "./resultados_json"
 
 ## 📄 ¿Qué resultado obtienes?
 En tu carpeta de resultados verás archivos que se ven así de limpios y ordenados:
-<img width="1271" height="232" alt="image" src="https://github.com/user-attachments/assets/0f116888-f83f-42c6-a06a-0b77167c0971" />
-
-
-
+<img width="970" height="1074" alt="image" src="https://github.com/user-attachments/assets/0fbafe7f-4f19-4066-99a7-0ce6679f5c83" />
 
 ---
 
 ## 🔍 Tu Reporte de Errores Listo
 Al finalizar, el script te dejará un archivo de texto llamado auditoria_reporte.txt. Al abrirlo, verás un resumen directo como este:
-
-=== REPORTE DE AUDITORÍA (NODOS CORRUPTOS) ===
-Total de archivos analizados: 800
-Total de errores encontrados: 1
-[ALERT] Archivo: lampara_prop.ma | Línea: 1452 -> Se detectó un nodo roto ('unknown').
+<img width="1271" height="232" alt="image" src="https://github.com/user-attachments/assets/0f116888-f83f-42c6-a06a-0b77167c0971" />
 
 ## 🧪 Pruebas de Seguridad (Opcional)
 Para estar 100% seguro de que el script hace su trabajo correctamente y no se va a trabar con archivos inexistentes o extensiones equivocadas, ejecuta este comando en tu terminal:
